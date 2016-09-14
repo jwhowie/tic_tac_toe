@@ -12,8 +12,7 @@ $(function(){
         self.text(turnArray[turn++]);
         if (turn > 4){
           if(checkWinner()){
-            $('.status').text(self.text() + ' Wins')
-            //alert(self.text() + ' Wins');
+            $('.status').text(self.text() + ' Wins!')
             winner = true;
           }
         }
@@ -26,13 +25,13 @@ $(function(){
   });
 
   function checkWinner(){
-    var self = $('.board');
-    var player = turnArray[turn];
+    var board = $('.board');
+    var otherPlayer = turnArray[turn];
     var magicTable = [[8, 1, 6], [3, 5, 7], [4,9,2]];
 
-    self.find('tr').each(function (r, row){
+    board.find('tr').each(function (r, row){
       $(this).find('td').each(function (c, col){
-        if($(col).text() === player || $(col).text() === ''){
+        if($(col).text() === otherPlayer || $(col).text() === ''){
           magicTable[r][c] = 0;
         }
       });
