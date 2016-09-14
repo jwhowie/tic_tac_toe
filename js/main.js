@@ -12,7 +12,8 @@ $(function(){
         self.text(turnArray[turn++]);
         if (turn > 4){
           if(checkWinner()){
-            alert(self.text() + ' Wins');
+            $('.status').text(self.text() + ' Wins')
+            //alert(self.text() + ' Wins');
             winner = true;
           }
         }
@@ -20,7 +21,7 @@ $(function(){
     }
 
     if(!winner && turn === 9){
-      alert('No One Wins Game Over!')
+      $('.status').text('No One Wins Game Over!')
     }
   });
 
